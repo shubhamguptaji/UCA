@@ -60,7 +60,16 @@ void printList(node **h)
 {
 	while ((*h) != NULL)
 	{
-		printf(" %d ", (*h)->data);
+		printf("%d ", (*h)->data);
 		(*h) = (*h)->next;
 	}
 }
+
+// int deleteAtBeg(node** h) {
+//     int data;
+//     if((*h)==NULL){
+//         return 0;
+//     }
+//     else{
+               
+// }
