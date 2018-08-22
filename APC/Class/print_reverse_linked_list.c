@@ -18,7 +18,8 @@ int main()
     addAtBeg(&head, 3);
     addAtBeg(&head, 2);
     addAtBeg(&head, 1);
-    // printList(&head);
-    func(head);
+    printList(&head);
+    // func(head);
+    // printf("%d",head->data);
     return 0;
 }

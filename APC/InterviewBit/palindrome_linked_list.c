@@ -8,8 +8,8 @@ int func(node** n, node* h) {
         int y=func(n, h->next);
         if(y==1) {
             if((*n) -> data == h->data) {
-                *n = *n->next;
-                return;
+                *n = (*n)->next;
+                return 1;
             }
             else{
                 return 0;
@@ -23,9 +23,9 @@ int main()
     addAtBeg(&head, 5);
     addAtBeg(&head, 4);
     addAtBeg(&head, 3);
-    addAtBeg(&head, 2);
-    addAtBeg(&head, 1);
+    addAtBeg(&head, 4);
+    addAtBeg(&head, 7);
     // printList(&head);
-    func(head, *head);
+    printf("%d",func(&head, head));
     return 0;
 }

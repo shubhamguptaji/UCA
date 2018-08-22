@@ -1,0 +1,4 @@
+__builtin_popcount(n)  //no. of 1 bits
+__builtin_clz(n)    //no.of leading zeroes
+__builtin_etz(n)    // trailing zeroes
+__builtin_parity(n)     //parity bits
