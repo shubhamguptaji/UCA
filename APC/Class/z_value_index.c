@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
+int z[100];
 int *zValueIndex(char *str)
 {
-    int z[100];
     int len = strlen(str);
-    int l = 0, r = 0,k;
+    int l = 0, r = 0, k;
     for (int i = 1; i < len; i++)
     {
         if (i > r)
@@ -39,8 +39,9 @@ int main()
     char *str = "aaabcxyaaaabczaaczabbaaaaaabc";
     char *b = "aaabc";
     int *arr = zValueIndex(str);
-    for(int i=0;i<20;i++) {
-        printf("%d ",arr[i]);
+    for (int i = 0; i < 20; i++)
+    {
+        printf("%d ", arr[i]);
     }
     return 0;
 }
