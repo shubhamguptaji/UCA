@@ -19,7 +19,7 @@ int *zValueIndex(char *str)
         }
         else
         {
-            k - i - l;
+            k =i - l;
             if (z[k] < r - i + 1)
                 z[i] = z[k];
             else
@@ -34,12 +34,13 @@ int *zValueIndex(char *str)
     }
     return z;
 }
+
 int main()
 {
-    char *str = "aaabcxyaaaabczaaczabbaaaaaabc";
-    char *b = "aaabc";
+    char *str = "aabxaabxcaabxaabxay";
+    char *b = "aabx";
     int *arr = zValueIndex(str);
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 50; i++)
     {
         printf("%d ", arr[i]);
     }
