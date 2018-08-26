@@ -28,7 +28,7 @@ void quickSort(int *a, int low, int high)
 {
     if(low < high)
     {
-        printf("hello\n");
+        // printf("hello\n");
         int p = partition(a, low, high);
         quickSort(a, low, p - 1);
         quickSort(a, p + 1, high);

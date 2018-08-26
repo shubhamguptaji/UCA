@@ -17,6 +17,7 @@ char *strstra(char *a, char *b)
                 }
                 else
                 {
+                    printf("HELLO\n");
                     flag = 0;
                     break;
                 }
@@ -29,13 +30,13 @@ char *strstra(char *a, char *b)
     //     return a[i];
     // else
     //     printf("Not Found");
-    return a[i];
+    return &a[i];
 }
 
 int main()
 {
-    char a[] = "hello world";
-    char b[10] = "ll";
+    char a[] = "bbbbbbbbab";
+    char b[10] = "baba";
     char *c = strstra(a,b);
     printf("%c",c);
     return 0;
