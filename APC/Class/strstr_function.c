@@ -9,7 +9,7 @@ char *strstra(char *a, char *b)
     {
         if (a[i] == b[0])
         {
-            for (int j = 0; j < lenb; j++)
+            for (int j = 1; j <= lenb; j++)
             {
                 if (a[i + j] == b[j])
                 {
