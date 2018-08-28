@@ -1,32 +1,25 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-int main() {
-    int n=9247;
-    int count=0,i=1;
-    while(i<=n) {
-        if(i%1000==0) {
-            count+=3;
-            i+=5;
-        }
-        else if(i%100==0) {
-            count+=2;
-            i+=5;
-        }
-        else if(i%50==0) {
-            count+=2;
-            i+=5;
-        }
-        else if(i%10==0) {
-            count +=1;
-            i+=5;
-        }
-        else if(i%5==0) {
-            i+=5;
-            count++;
+int main()
+{
+    int n = 9247;
+    int count = 0;
+    int m = n, a = 0;
+    while (count>=0)
+    {
+        if ((int)(m / pow(5, ++count)) > 0)
+        {
+            continue;
         }
         else
-            i++;
+            break;
     }
-    printf("%d", count);
+    count--;
+    while(count>0) {
+        a+=(int)(n/pow(5,count--));
+    }
+    printf("%d",a);
+    return 0;
 }

@@ -11,7 +11,7 @@ void quickSort(int* a,int l, int r) {
     if(r<=l)
         return;
     int last=l;
-    int ran=(rand() % (r-l+1) )+l;
+    int ran=0;
     swap(a,ran,l);
     int p=a[last];
     for(int i=l+1;i<=r;i++) {

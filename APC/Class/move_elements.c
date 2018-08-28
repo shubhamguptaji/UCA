@@ -1,28 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+void swap(int* a, int i, int j) {
+    int temp = a[i];
+    a[i]=a[j];
+    a[j]=temp;
+}
+
+
+void quickSort(int* a,int l, int r) {
+    if(r<=l)
+        return;
+    int last=l;
+    int ran=0;
+    swap(a,ran,l);
+    int p=0;
+    for(int i=l+1;i<=r;i++) {
+        if(a[i]>p)
+            swap(a,i,++last);
+    }
+    swap(a,l,last);
+    // quickSort(a,l,last);
+    // quickSort(a,last+1,r);
+}
+
 void moveElements(int *a, int n)
 {
-    int count = 0;
-    for (int i = 0; i < n+count; i++)
-    {
-        if (a[i] < 0)
-        {
-            printf("%d\n", a[i]);
-            int temp = a[i];
-            for (int j = i; j < n - 1; j++)
-            {
-
-                a[j] = a[j + 1];
-            }
-            count++;
-            // if(a[i+1]<0)
-            // i--;
-            a[n - 1] = temp;
-            if(a[i-1]<0 && i<n-count)
-                i--;
-        }
-    }
+    quickSort(a,0,n);
 }
 
 int main()
