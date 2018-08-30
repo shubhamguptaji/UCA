@@ -4,13 +4,13 @@
 const int SIZE = 15;
 typedef struct stack
 {
-    int *arr;
+    char *arr;
     int top;
 } stk;
 
 void init(stk *mem, int x)
 {
-    mem->arr = (int *)malloc(sizeof(int) * x);
+    mem->arr = (char *)malloc(sizeof(char) * x);
     mem->top = -1;
 }
 
@@ -30,7 +30,7 @@ int isEmpty(stk *s)
     return 0;
 }
 
-void push(stk *s, int data)
+void push(stk *s, char data)
 {
     s->top += 1;
     s->arr[s->top] = data;
