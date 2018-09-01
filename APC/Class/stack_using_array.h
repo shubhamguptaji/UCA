@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
-const int SIZE = 15;
+const int SIZE = 150;
 typedef struct stack
 {
     char *arr;
