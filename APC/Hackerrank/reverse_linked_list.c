@@ -32,8 +32,8 @@ int main() {
     addAtBeg(&head, 2);
     addAtBeg(&head, 1);
     printf("\n");
-    node* rev = reverse_recursively(head);
-    printList(&rev);
+    // node* rev = reverse_recursively(head);
+    printList(&head);
     // printList(&head);
 
     return 0;
