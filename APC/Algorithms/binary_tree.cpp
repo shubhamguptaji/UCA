@@ -131,9 +131,9 @@ void preOrderIterative(Btree *root)
     stack<Btree *> stk;
     while (1)
     {
-        printf("%d  ", root->data);
         while (root)
         {
+            printf("%d ", root->data);
             stk.push(root);
             root = root->left;
         }
@@ -141,17 +141,37 @@ void preOrderIterative(Btree *root)
             return;
         root = stk.top();
         stk.pop();
-        // root = root->right;
+        root = root->right;
     }
 }
 
 void postOrderIterative(Btree *root)
 {
+    stack<Btree *> stk1;
+    stack<Btree *> stk2;
+    while(1) {
+        stk1.push(root);
+        Btree *node = stk1.top();
+        stk1.pop();
+        stk2.push(node);
+        if(node->left) {
+            stk1.push(node->left);
+        }
+        if(node->right) {
+            stk1.push(node->right);
+        }
+        if(stk1.empty())
+            return;
+
+    }
+    while(!stk2.empty()){
+        printf("%d ", stk2.top());
+        stk2.pop();
+    }
 }
 
 int main()
 {
-    system("cat z_value.c");
     Btree *root = NULL;
     root = putValue(root, 1);
     root = putValue(root, 2);
@@ -161,14 +181,14 @@ int main()
     root = putValue(root, 6);
     root = putValue(root, 7);
 
-    inOrder(root);
+    // inOrder(root);
+    // cout << endl;
+    // preOrder(root);
+    // cout << endl;
+    // postOrder(root);
+    // cout << endl;
+    // inOrderIterative(root);
     cout << endl;
-    preOrder(root);
-    cout << endl;
-    postOrder(root);
-    cout << endl;
-    inOrderIterative(root);
-    cout << endl;
-    // preOrderIterative(root);
+    postOrderIterative(root);
     return 0;
 }
