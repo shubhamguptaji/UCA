@@ -78,18 +78,18 @@ int main()
     int a[] = {2,4,6,7} ;
     int b[] = {1,3,5};
     int len;
-    // int* c = merge(a, b, 2, 0, &len);
-    // printf("\n");
-    // for (int i = 0; i < len; i++)
-    // {
-    //     printf("%d ", c[i]);
-    // }
-    // double mid;
-    // if(len%2==1)
-    //     mid = c[len/2];
-    // else
-    //     mid = (double)(c[(len/2)-1] + c[(len/2)])/2;
-    // printf("\n%f\n",mid);
+    int* c = merge(a, b, 2, 0, &len);
+    printf("\n");
+    for (int i = 0; i < len; i++)
+    {
+        printf("%d ", c[i]);
+    }
+    double mid;
+    if(len%2==1)
+        mid = c[len/2];
+    else
+        mid = (double)(c[(len/2)-1] + c[(len/2)])/2;
+    printf("\n%f\n",mid);
     len = median(a,b,4,3);
     return 0;
 }
