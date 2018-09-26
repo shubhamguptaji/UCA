@@ -1,0 +1,15 @@
+encapsulation 
+- loose coupling
+- strong cohesion
+
+- is a relationship
+- has a relationship
+
+- override
+- overloading
+
+
+App ID
+77ec88b3
+Key
+4e75cfa1fbc4327246c5058bc87af28d
