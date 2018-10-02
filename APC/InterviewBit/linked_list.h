@@ -56,12 +56,12 @@ void addAtPosition(node** h, int data, int pos) {
         }
     }
 }
-void printList(node **h)
+void printList(node *h)
 {
-	while ((*h) != NULL)
+	while (h != NULL)
 	{
-		printf("%d ", (*h)->data);
-		(*h) = (*h)->next;
+		printf("%d ", h->data);
+		h = h->next;
 	}
 }
 
