@@ -28,7 +28,7 @@ void maxArray(int *a, int n)
             // m = 0;
         }
     }
-    printf("%d %d ", m, maxl);
+    printf("%d %d ", max, maxl);
 }
 
 int main()
