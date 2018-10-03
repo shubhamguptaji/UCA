@@ -126,6 +126,24 @@ void inOrderIterative(Btree *root)
     }
 }
 
+void inOrderPractice(Btree *root)
+{
+    stack<Btree *> stk;
+    while (1)
+    {
+        while (root)
+        {
+            stk.push(root);
+            root = root->left;
+        }
+        if (stk.empty())
+            return;
+        root = stk.top();
+        stk.pop();
+        root = root->right;
+    }
+}
+
 void preOrderIterative(Btree *root)
 {
     stack<Btree *> stk;
@@ -223,12 +241,12 @@ void postOrderIterative2(Btree *root)
     }
 }
 
-int height(Btree *root) {
-    if(root==NULL)
+int height(Btree *root)
+{
+    if (root == NULL)
         return 0;
-    return 1+(max(height(root->left), height(root->right)));
+    return 1 + (max(height(root->left), height(root->right)));
 }
-
 
 void topView(Btree *root)
 {
