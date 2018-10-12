@@ -119,6 +119,27 @@ node * deleteNode(node* root, int d) {
             root->right = deleteNode(root->right, temp->data);
         }
     }
+    int b = height(root->left) - height(root->right);
+    if (b > 1)
+    {
+        if (height(root->left->left)>height(root->left->right))
+        {
+            return rightrotate(root);
+        }
+        else
+            root->left = leftrotate(root->left);
+        return rightrotate(root);
+    }
+    else if (b < -1)
+    {
+        if (height(root->right->right)>height(root->right->left))
+        {
+            return leftrotate(root);
+        }
+        else
+            root->right = rightrotate(root->left);
+        return leftrotate(root);
+    }
     return root;
 }
 
