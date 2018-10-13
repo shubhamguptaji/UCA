@@ -3,15 +3,19 @@ import java.util.Collections;
 import java.util.Arrays;
 
 public class merge_k_sorted_list {
-    private PriorityQueue<LinkedList> p;
+    private PriorityQueue<LinkedList> p = new PriorityQueue<>();
     
     public mergeLists(LinkedList[] list) {
-
+        int n = list.length;
+        for(int i=0;i<list.length;i++)  {
+            p.add(list.get(i));
+        }
+        
     }
 
     public static void main(String[] args) {
         int k = 3;
-        LinkedList[] lists = new LinkedList[k];
+        LinkedList<Integer>[] lists = new LinkedList[k];
         for(int i=0;i<k;i++)
             lists[i] = new LinkedList<>();
         lists[0].add(1);
