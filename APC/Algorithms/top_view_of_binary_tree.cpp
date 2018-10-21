@@ -73,7 +73,7 @@ void topView(Btree* root) {
         arr[i] = -1;
     while(!q.empty())
     {
-        Btree* root = q.front();
+        root = q.front();
         q.pop();
         if(root->left)
         {
