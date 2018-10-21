@@ -248,39 +248,6 @@ int height(Btree *root)
     return 1 + (max(height(root->left), height(root->right)));
 }
 
-void topView(Btree *root)
-{
-    int l = 0, r = 0;
-    printf("%d ", height(root));
-    int a[7];
-    a[3] = root->data;
-    Btree *root1 = root;
-    while (root1)
-    {
-        if (root1->left)
-        {
-            a[3 - (++l)] = root1->left->data;
-            // printf("%d ", root1->left->data);
-            root1 = root1->left;
-        }
-        else
-            break;
-    }
-    Btree *root2 = root;
-    while (root2)
-    {
-        if (root2->right)
-        {
-            a[3 + (++r)] = root2->right->data;
-            // printf("%d ", root2->right->data);
-            root2 = root2->right;
-        }
-        else
-            break;
-    }
-    for (int i = 0; i < 7; i++)
-        printf("%d ", a[i]);
-}
 
 // int main()
 // {

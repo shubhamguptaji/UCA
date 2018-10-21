@@ -275,15 +275,15 @@ int main()
     root = putValue(root, 6);
     root = putValue(root, 7);
 
-    // inOrder(root);
-    // cout << endl;
-    // preOrder(root);
-    // cout << endl;
+    inOrder(root);
+    cout << endl;
+    preOrder(root);
+    cout << endl;
     // postOrder(root);
     // cout << endl;
     // inOrderIterative(root);
     // cout << endl;
     // postOrderIterative2(root);
-    topView(root);
+    // topView(root);
     return 0;
 }
