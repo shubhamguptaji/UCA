@@ -1,18 +1,14 @@
 public class Node {
-    int rollno;
-    double cgpa;
+    Student obj;
     Node left, right;
     Node()
     {
-        rollno = 0;
-        cgpa = 0.0;
+        this.obj = null;
         left = null;
         right = null;
     }
-    Node(int roll, double gpa)
-    {
-        rollno = roll;
-        cgpa = gpa;
+    Node(Student o) {
+        obj = o;
         left = null;
         right = null;
     }
