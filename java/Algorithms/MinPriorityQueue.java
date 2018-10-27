@@ -50,7 +50,7 @@ public class MinPriorityQueue {
     }
 
     public int peek() {
-        return heap[1];
+        return heap[0];
     }
 
     public int poll() {
@@ -108,11 +108,11 @@ public class MinPriorityQueue {
         q.insert(3);
         q.insert(8);
         q.print(); // [ 1, 2, 3, 5, 7, 6, 4, 8 ]
-        // q.heapSort();
-        // q.print(); // [ 8, 7, 6, 5, 4, 3, 2, 1 ]
         System.out.println();
-        System.out.println(q.peek());
-        // q.print();
+        // System.out.println(q.poll());
+        q.poll();
+        System.out.println();
+        q.print();
 
     }
 }
