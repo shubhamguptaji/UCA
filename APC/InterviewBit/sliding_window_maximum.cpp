@@ -1,39 +1,41 @@
 #include <iostream>
-#include <deque>
+#include <queue>
 
 using namespace std;
 
-// A Dequeue (Double ended queue) based method for printing maixmum element of
-// all subarrays of size k
-void printKMax(int arr[], int n, int k)
-{
-    std::deque<int> Qi(k);
-    int i;
-    for (i = 0; i < k; ++i)
-    {
-        while ((!Qi.empty()) && arr[i] >= arr[Qi.back()])
-            Qi.pop_back(); // Remove from rear
-        Qi.push_back(i);
-    }
-    for (; i < n; ++i)
-    {
-        cout << arr[Qi.front()] << " ";
-        while ((!Qi.empty()) && Qi.front() <= i - k)
-            Qi.pop_front(); // Remove from front of queue
-        while ((!Qi.empty()) && arr[i] >= arr[Qi.back()])
-            Qi.pop_back();
-
-        Qi.push_back(i);
-    }
-
-    cout << arr[Qi.front()];
+int findMax(int a[], int strt, int end) {
+    int i, max = INT_MIN;
+    for(i=strt;i<=end;i++)
+        if(a[i]>=max)
+            max = a[i];
+    return max;
 }
 
-int main()
-{
-    int arr[] = {12, 1, 78, 90, 57, 89, 56};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 3;
-    printKMax(arr, n, k);
+void slidingWindowMax(int a[], int n, int w) {
+    queue<int> q;
+    int max = INT_MIN;
+    for(int i=0;i<w;i++)
+    {
+        q.push(a[i]);
+        if(a[i]>=max)
+            max = a[i];
+    }
+    cout<<max<<" ";
+    for(int i=w;i<n;i++) {
+        int temp = q.front();
+        q.pop();
+        if(max == temp)
+            max = findMax(a, i-w+1, i);
+        if(a[i]>=max)
+            max = a[i];
+        q.push(a[i]);
+        cout<<max<<" ";
+    }
+}
+
+int main() {
+    int a[] = {648, 614, 490, 138, 657, 544, 745, 582, 738, 229, 775, 665, 876, 448, 4, 81, 807, 578, 712, 951, 867, 328, 308, 440, 542, 178, 637, 446, 882, 760, 354, 523, 935, 277, 158, 698, 536, 165, 892, 327, 574, 516, 36, 705, 900, 482, 558, 937, 207, 368};
+    int n = sizeof(a)/sizeof(a[0]);
+    slidingWindowMax(a, n,9);
     return 0;
 }
