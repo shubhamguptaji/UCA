@@ -9,11 +9,6 @@ void morrisInorder(Btree* root)
     {
         if(current->left==NULL)
         {
-            count++;
-            if(count == k)
-            {
-                ksmall = current->data;
-            }
             cout<<current->data<< " ";
             current= current->right;
         }
@@ -31,11 +26,6 @@ void morrisInorder(Btree* root)
             {
                 pre->right == NULL;
                 cout<<current->data<<" ";
-                count++;
-                if(count == k)
-                {
-                    ksmall = current->data;
-                }
                 current = current->right;
             }
         }
