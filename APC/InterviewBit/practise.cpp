@@ -40,7 +40,7 @@ string* keypad(int input, int outputSize) {
     for(int i=0;i<lastDigitChars.size();i++) {
         for(int j=0;j<smallOutputSize;j++)
         {
-            output[k]  =  smallOutput[i] + lastDigitChars[j];
+            output[k]  =  smallOutput[j] + lastDigitChars[i];
             k++;
         }
     }
@@ -51,5 +51,6 @@ string* keypad(int input, int outputSize) {
 int main() 
 {
     int size;
-    string* res = keypad(23, &size);
+    string* res = keypad(23, size);
+    for(int )
 }

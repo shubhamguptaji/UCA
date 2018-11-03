@@ -3,10 +3,16 @@ package BST;
 public class BinarySearchTree{
     class Node { 
         int data;
-        int key; 
+        String key; 
         Node left, right; 
+
+        public Node() {
+            data = 1;
+            key = "";
+            left = right = null;
+        }
   
-        public Node(int k) { 
+        public Node(String k) { 
             data = 1;
             key = k;
             left = right = null; 
@@ -17,16 +23,16 @@ public class BinarySearchTree{
         root = null;
     }
 
-    public void insert(int k)   {
+    public void insert(String k)   {
         root = insert(root, k);
     }
 
-    private Node insert(Node root, int k) {
+    private Node insert(Node root, String k) {
         if(root==null)
             return new Node(k);
-        if(k==root.key) 
-            root.data = data;
-        else if(k<root.key)
+        if(k.equals(root.key) == true) 
+            root.data = root.data + 1;
+        else if(k.compareTo(root.key)<0)
             root.left = insert(root.left, k);
         else
             root.right = insert(root.right, k);
@@ -39,56 +45,74 @@ public class BinarySearchTree{
         return false;
     }
 
-    public boolean search(int k) {
+    public boolean search(String k) {
         int temp = search(root, k);
         if(temp == -1)
             return false;
         return true;
     }
 
-    private int search(Node root, int k) {
+    private int search(Node root, String k) {
         if(root==null) return -1;
-        if(k==root.key) return root.data;
-        else if(k<root.key) return search(root.left, k);
+        if(k.equals(root.key)) return root.data;
+        else if(k.compareTo(root.key)<0) return search(root.left, k);
         else return search(root.right, k);
     }
     
-    public void delete(int k) {
-        root = delete(root, k);
-        // if(root == null) System.out.println("Value does not exists!");
-    }
+    // public void delete(int k) {
+    //     root = delete(root, k);
+    //     // if(root == null) System.out.println("Value does not exists!");
+    // }
 
-    private Node findmin(Node root) {
-        while(root.left!=null) root = root.left;
-        return root;
-    }
+    // private Node findmin(Node root) {
+    //     while(root.left!=null) root = root.left;
+    //     return root;
+    // }
 
-    private Node delete(Node root, int k) {
-        if(isEmpty()) System.out.println("Tree is already empty!");
-        if(root==null) return root;
-        if(k<root.key) root.left = delete(root.left, k);
-        else if(root.key<k) root.right = delete(root.right, k);
-        else {
-            if(root.left==null) return root.right;
-            else if(root.right==null) return root.left;
-            else {
-                Node temp = findmin(root.right);
-                root.data = temp.data;
-                root.key = temp.key;
-                root.right = delete(root.right, root.key);
-            }
-        }
-        return root;
-    }
+    // private Node delete(Node root, int k) {
+    //     if(isEmpty()) System.out.println("Tree is already empty!");
+    //     if(root==null) return root;
+    //     if(k<root.key) root.left = delete(root.left, k);
+    //     else if(root.key<k) root.right = delete(root.right, k);
+    //     else {
+    //         if(root.left==null) return root.right;
+    //         else if(root.right==null) return root.left;
+    //         else {
+    //             Node temp = findmin(root.right);
+    //             root.data = temp.data;
+    //             root.key = temp.key;
+    //             root.right = delete(root.right, root.key);
+    //         }
+    //     }
+    //     return root;
+    // }
+
+    static Node findMax(Node node) 
+    { 
+        if (node == null) 
+            return node; 
+  
+        Node res = node; 
+        Node lres = findMax(node.left); 
+        Node rres = findMax(node.right); 
+  
+        if (lres != null && lres.data > res.data) 
+            res = lres; 
+        if (rres != null && rres.data > res.data) 
+            res = rres; 
+        return res; 
+    } 
 
     public void inorder() {
         inorder(root);
+        Node max = findMax(root);
+        System.out.println(max.key + " " + max.data);
     }
 
     private void inorder(Node root) {
         if(root == null) return;
         inorder(root.left);
-        System.out.print(root.data + " ");
+        // System.out.print(root.data + " ");
         inorder(root.right);
     }
 
