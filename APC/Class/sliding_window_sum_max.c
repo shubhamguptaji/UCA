@@ -49,6 +49,36 @@ int slidingWindowSumMax(deq *d, int w, int j)
     printf("%d\n", sum);
 }
 
+void slidingMaximum(const int* a, int n, int w) {
+    
+    queue* q = (queue*)malloc(sizeof(queue));
+    initialize(q, n);
+    int max = INT_MIN;
+    // *len1 = n-w+1;
+    // int* res = (int*)malloc(sizeof(int) * (*len1+1));
+    int k=0, i;
+    for(i=0;i<w;i++)
+    {
+        enqueue(q,a[i]);
+        if(a[i]>=max)
+            max = a[i];
+    }
+    // res[k++]= max;
+        // printf("%d ", max);
+
+    for(i=w;i<n;i++) {
+        int temp = dequeue(q);
+        if(max == temp)
+            max = findMax(a, i-w+1, i);
+        if(a[i]>=max)
+            max = a[i];
+        enqueue(q,a[i]);
+        // printf("%d ", max);
+        // res[k++] = max;
+    }
+    // return res;
+}
+
 int main()
 {
     deq *d = (deq *)malloc(sizeof(deq));

@@ -19,9 +19,9 @@ int main()
     root = putValue(root, 5);
     root = putValue(root, 6);
     root = putValue(root, 7);
-    // root = putValue(root, 8);
+    root = putValue(root, 8);
     int flag=0;
-    Sum(root, 11, 0, &flag);
+    Sum(root, 14, 0, &flag);
     cout << flag;
     return 0;
 
