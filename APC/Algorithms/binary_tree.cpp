@@ -283,7 +283,7 @@ int main()
     // cout << endl;
     // inOrderIterative(root);
     // cout << endl;
-    // postOrderIterative2(root);
+    postOrderIterative(root);
     // topView(root);
     return 0;
 }
