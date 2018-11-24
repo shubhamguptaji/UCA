@@ -2,13 +2,14 @@
 using namespace std;
 
 vector<int> v[10];
-int vis[10] = {0};
 
 void insert(int a, int b) {
     v[a].push_back(b);
+    v[b].push_back(a);
 }
 
 void bsf(int a) {
+    int vis[10] = {0};
     queue<int> q;
     q.push(a);
     vis[a] = 1;
@@ -16,22 +17,21 @@ void bsf(int a) {
         int temp = q.front();
         cout<<temp<< " ";
         q.pop();
-        // cout<<temp<<endl;
         for(int i=0;i<v[temp].size();i++) {
             if(vis[v[temp][i]]==0) {
-            vis[v[temp][i]]=1;
-            q.push(v[temp][i]);
+                vis[v[temp][i]]=1;
+                q.push(v[temp][i]);
             }
-            // cout<<v[temp][i];
         }
     }
 }
+int visited[10] = {0};
 // recursive dfs
 void dfs(int a) {
-    vis[a] = 1;
+    visited[a] = 1;
     cout<<a<<" ";
     for(int i=0;i<v[a].size();i++) {
-        if(vis[v[a][i]]==0)
+        if(visited[v[a][i]]==0)
          {
             //  cout<<v[a][i]<<" ";
             dfs(v[a][i]);
@@ -42,6 +42,7 @@ void dfs(int a) {
 //iterative
 
 void iterativeDFS(int a) {
+    int vis[10] = {0};
     stack<int> stk;
     stk.push(a);
     vis[a]=1;
@@ -58,6 +59,11 @@ void iterativeDFS(int a) {
     }
 }
 
+void degree(int a) {
+    int count = v[a].size();
+    cout<<count;
+}
+
 
 int main() {
     insert(0,2);
@@ -70,6 +76,8 @@ int main() {
     insert(7,9);
     insert(3,2);
     insert(5,0);
-    // bsf(0);
-    iterativeDFS(0);
+    bsf(0);
+    cout<<endl;
+    degree(2);
+    // iterativeDFS(0);
 }

@@ -6,6 +6,10 @@ void enqueue(stk *s, int data)
     s->arr[s->top]=data;
 }
 
+int topp(stk* s) {
+    return s->arr[s->top];
+}
+
 int dequeue(stk* s, stk* t) {
     int x =s->top;
     for(int i=0;i<=x;i++) {
@@ -28,6 +32,7 @@ int main()
     enqueue(&s, 4);
     enqueue(&s, 5);
     enqueue(&s, 6);
+    printf("%d", topp(&s));
     printf("%d ",dequeue(&s,&t));
     printf("%d ",dequeue(&s,&t));
     printf("%d ",dequeue(&s,&t));
