@@ -76,49 +76,44 @@ void toPostFix(char *str, stk *s)
         if (str[i] == '(')
         {
             push(s, str[i]);
-            // printf("\n%c\n", s->arr[s->top]);
         }
         else if (isoperand(str[i]))
         {
-            // printf("\n%c\n", s->arr[s->top]);
             a[k++] = str[i];
         }
         else if (str[i] == ')')
         {
-            // printf("\n%c\n", s->arr[s->top]);
-
             while (s->arr[s->top] != '(')
             {
-                // printf("%c ", pop(s));
                 a[k++] = pop(s);
             }
             pop(s);
         }
         else
         {
-            // printf("\n%c\n", s->arr[s->top]);
-            // printf("%c ", str[i]);
             while (precedence(str[i], s->arr[s->top]))
             {
-                // printf("%c\n", pop(s));
                 char b = pop(s);
                 a[k++] = b;
             }
             push(s, str[i]);
         }
     }
-    // printf("%c ", pop(s));
     a[k] = '\0';
     printf("%s\n", a);
 }
 
 int main()
 {
-    stk s;
-    init(&s, 30);
-    char a[] = "((a+t)*((b+(a+c))^(c+d)))";
-    toPostFix(a, &s);
-    // int n = strlen(a);
-    // printf("%d", n);
+    int t;
+    scanf("%d ", &t);
+    while (t--)
+    {
+        char str[400];
+        gets(str);
+        stk s;
+        init(&s, strlen(str));
+        toPostFix(str, &s);
+    }
     return 0;
 }
