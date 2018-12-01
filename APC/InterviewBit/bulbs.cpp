@@ -6,7 +6,6 @@ int bulbs(int a[], int n)
     int count = 0;
     for (int i = 0; i < n; i++)
     {
-        // cout << a[i] << " ";
         if (a[i] == 0 && count == 0)
         {
             count++;
@@ -18,11 +17,6 @@ int bulbs(int a[], int n)
         }
         else if (a[i] == 1 && count % 2)
             count++;
-        // for (int j = 0; j < n; j++)
-        // {
-        //     cout << a[j] << " ";
-        // }
-        // cout << endl;
     }
     return count;
 }
