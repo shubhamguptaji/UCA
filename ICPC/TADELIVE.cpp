@@ -1,6 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool compare(pair<int, int> x, pair<int, int> y)
+{
+    if (x.first > y.first)
+    {
+        return true;
+    }
+    return false;
+}
+
 int main()
 {
     int n, x, y;
@@ -8,34 +17,41 @@ int main()
     int a[n], b[n];
     for (int i = 0; i < n; i++)
         cin >> a[i];
+    pair<int, int> c[n];
     for (int i = 0; i < n; i++)
+    {
         cin >> b[i];
+        c[i] = {abs(a[i] - b[i]), i};
+    }
+    sort(c, c + n, compare);
     int count = 0, j = 0, k = 0, r = 0;
     for (int i = 0; i < n; i++)
     {
-        if (a[i] > b[i] && j < x)
+        if (a[c[i].second] > b[c[i].second])
         {
-            j++;
-            count += a[i];
-        }
-        else if (a[i] < b[i] && k < y)
-        {
-            k++;
-            count += b[i];
+            if (j < x)
+            {
+                j++;
+                count += a[c[i].second];
+            }
+            else if (k < y)
+            {
+                k++;
+                count += b[c[i].second];
+            }
         }
         else
         {
-            if (r % 2 == 1 && j < x)
-            {
-                j++;
-                count += a[i];
-            }
-            else if (r % 2 == 0 && k < y)
+            if (k < y)
             {
                 k++;
-                count += b[i];
+                count += b[c[i].second];
             }
-            r++;
+            else if (j < x)
+            {
+                j++;
+                count += a[c[i].second];
+            }
         }
     }
     cout << count << endl;
